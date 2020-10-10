@@ -1,0 +1,22 @@
+string Solution::solve(string A, int B) {
+    int len = A.length();
+    vector<pair<int,int> > temp;
+    int i=0;
+    while(i<len){
+        int j=i,start=i;
+        int cnt=0;
+        while(A[j]==A[i] && j<len){
+            cnt++;
+            j++;
+        }
+        temp.push_back(make_pair(start,cnt));
+        i += cnt;
+    }
+    string out;
+    for(int i=0;i<temp.size();i++){
+        if(temp[i].second!=B){
+            out += A.substr(temp[i].first,temp[i].second);
+        }
+    }
+    return out; 
+}
