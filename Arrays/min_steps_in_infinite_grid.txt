@@ -1,0 +1,14 @@
+int Solution::coverPoints(vector<int> &A, vector<int> &B) {
+    int xcur = A[0];
+    int ycur = B[0];
+    int res = 0;
+    for(int i=1;i<A.size();i++){
+        int xdif = abs(xcur - A[i]);
+        int ydif = abs(ycur - B[i]);
+        res += max(xdif, ydif);
+        xcur = A[i];
+        ycur = B[i];
+    }
+    return res;
+}
+
