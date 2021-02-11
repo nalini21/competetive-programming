@@ -1,3 +1,4 @@
+//C++//
 int Solution::coverPoints(vector<int> &A, vector<int> &B) {
     int xcur = A[0];
     int ycur = B[0];
@@ -11,4 +12,20 @@ int Solution::coverPoints(vector<int> &A, vector<int> &B) {
     }
     return res;
 }
+
+##python##
+class Solution:
+	# @param A : list of integers
+	# @param B : list of integers
+	# @return an integer
+	def coverPoints(self, A, B):
+	    n = len(A)
+	    res = 0
+	    xcur, ycur = A[0], B[0]
+	    for i in range(1, n):
+	        xdif = abs(xcur-A[i])
+	        ydif = abs(ycur-B[i])
+	        res += max(xdif, ydif)
+	        xcur, ycur = A[i], B[i]
+	    return res
 
