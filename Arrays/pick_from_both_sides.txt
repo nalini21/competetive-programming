@@ -1,3 +1,5 @@
+
+//c++//
 int Solution::solve(vector<int> &A, int B) {
     int n = A.size();
     int result = 0;
@@ -11,3 +13,21 @@ int Solution::solve(vector<int> &A, int B) {
     }
     return result;
 }
+
+##python##
+class Solution:
+    # @param A : list of integers
+    # @param B : integer
+    # @return an integer
+    def solve(self, A, B):
+        res = 0
+        sum = 0
+        n = len(A)
+        for i in range(0,B):
+            res += A[i]
+        sum = res
+        for i in range(0,B):
+            sum -= A[B-1-i]
+            sum += A[n-1-i]
+            res = max(sum, res)
+        return res
